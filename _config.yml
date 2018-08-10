@@ -1,1 +1,25 @@
-theme: jekyll-theme-slate
+title: KubeCrunch
+email: cskkman@gmail.com
+description: >
+  KubeCrunch site
+logo: "/assets/images/kc.png"
+baseurl: "" 
+url: "https://kubecrunch.com"
+# paginate:
+
+name: 'kubeCrunch'
+
+twitter_username: kubecrunch
+github_username:  kubecrunch
+
+# Google Analytics
+analytics_id: ""
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  parse_block_html: true
+
+gems:
+  - jekyll-paginate
