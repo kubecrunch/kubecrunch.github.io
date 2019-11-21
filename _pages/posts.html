@@ -1,0 +1,26 @@
+---
+title: "Posts"
+layout: default
+permalink: "/posts.html"
+---
+<div class="container">
+
+<div class="row mt-3">
+
+    <div class="col-md-10 main-loop">
+
+        <!-- <h4 class="font-weight-bold spanborder"><span>Posts</span></h4> -->
+<!-- Sticky - add sticky tag to the post you want to highlight here - tags: [sticky] -->
+{% for post in site.posts %}
+{% if post.published == true %}
+            {% include main-loop-card.html %}
+{% endif %}
+
+{% endfor %}
+
+    </div>
+
+</div>
+
+
+</div>
