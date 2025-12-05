@@ -1,109 +1,2360 @@
----
-title: "Math Little Champs 2025"
-layout: default
-permalink: "/mlc-2025.html"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Little Champs 2025 - Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fredoka+One:wght@400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #FFD700;
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --accent-green: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
 
-<div class="mlc-2025-container">
-  <header class="mlc-header">
-    <div class="trophy-icon">🏆</div>
-    <h1 class="mlc-title">Math Little Champs 2025</h1>
-    <div class="subtitle">গণিত ছোট্ট চ্যাম্পিয়নরা ২০২৫</div>
-  </header>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <div class="announcement-card">
-    <div class="date-badge">
-      <span class="date-number">6</span>
-      <span class="date-month">December</span>
-      <span class="date-year">2025</span>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 30px;
+            box-shadow: var(--shadow-strong);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.05) 20px,
+                rgba(255, 255, 255, 0.05) 40px
+            );
+            animation: shimmer 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .trophy-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 3s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        .main-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5rem;
+            color: white;
+            margin: 20px 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .results-announced {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+            border-left: 8px solid var(--accent-green);
+        }
+
+        .results-announced h2 {
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .results-announced p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 25px;
+            border: 3px solid var(--secondary-blue);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 5px rgba(255, 215, 0, 0.2);
+        }
+
+        .rank-list {
+            background: var(--bg-white);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 50px;
+        }
+
+        .rank-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 100px 80px;
+            gap: 20px;
+            padding: 20px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .rank-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 100px 80px;
+            gap: 20px;
+            padding: 18px 20px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+            align-items: center;
+        }
+
+        .rank-row:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .rank-row:hover {
+            background: #e0f2fe;
+            transform: translateX(5px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .rank-position {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .rank-1 .rank-position { color: var(--primary-gold); font-size: 1.4rem; }
+        .rank-2 .rank-position { color: #c0c0c0; font-size: 1.3rem; }
+        .rank-3 .rank-position { color: #cd7f32; font-size: 1.25rem; }
+
+        .student-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .parent-name {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        .marks {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent-orange);
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .medal {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .rank-1 .medal::after { content: "🥇"; }
+        .rank-2 .medal::after { content: "🥈"; }
+        .rank-3 .medal::after { content: "🥉"; }
+
+        .top-performers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .performer-card {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .performer-1 {
+            background: linear-gradient(135deg, #ffd700, #ffed4a);
+            color: var(--text-dark);
+        }
+
+        .performer-2 {
+            background: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+            color: var(--text-dark);
+        }
+
+        .performer-3 {
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            color: white;
+        }
+
+        .performer-medal {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .performer-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .performer-marks {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 50px;
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .rank-header,
+            .rank-row {
+                grid-template-columns: 60px 1fr 80px 60px;
+                gap: 10px;
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .top-performers {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .loading-animation {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .celebration-confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-gold);
+            animation: confetti-fall 3s ease-out infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="trophy-icon">🏆</div>
+            <h1 class="main-title">Math Little Champs 2025</h1>
+            <div class="subtitle">গণিত ছোট্ট চ্যাম্পিয়নরা ২০২৫</div>
+        </div>
+
+        <!-- Results Announcement -->
+        <div class="results-announced">
+            <h2>🎉 Results Declared!</h2>
+            <p class="english-text">Congratulations to all participants who made Math Little Champs 2025 a grand success!</p>
+            <p class="bangla-text">সকল অংশগ্রহণকারীদের অভিনন্দন যারা গণিত ছোট্ট চ্যাম্পিয়নস ২০২৫ কে সফল করেছেন!</p>
+        </div>
+
+        <!-- Statistics Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">175</span>
+                <div class="stat-label">Total Participants</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">81</span>
+                <div class="stat-label">Highest Score</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">42.6</span>
+                <div class="stat-label">Average Score</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <div class="stat-label">Participation Rate</div>
+            </div>
+        </div>
+
+        <!-- Top 3 Performers -->
+        <div class="top-performers">
+            <div class="performer-card performer-1">
+                <div class="performer-medal">🥇</div>
+                <div class="performer-name">Kunal Saha</div>
+                <div class="performer-marks">81</div>
+                <div>Rank 1</div>
+            </div>
+            <div class="performer-card performer-2">
+                <div class="performer-medal">🥈</div>
+                <div class="performer-name">Mousami Das</div>
+                <div class="performer-marks">75</div>
+                <div>Rank 2</div>
+            </div>
+            <div class="performer-card performer-3">
+                <div class="performer-medal">🥉</div>
+                <div class="performer-name">Avijit Singha</div>
+                <div class="performer-marks">72</div>
+                <div>Rank 3</div>
+            </div>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-container">
+            <input type="text" class="search-box" id="searchBox" placeholder="Search by student name or parent name...">
+        </div>
+
+        <!-- Complete Rank List -->
+        <div class="rank-list">
+            <div class="rank-header">
+                <div>Rank</div>
+                <div>Student Details</div>
+                <div>Marks</div>
+                <div>Medal</div>
+            </div>
+
+            <div class="rank-rows" id="rankRows">
+                <!-- Rank 1 -->
+                <div class="rank-row rank-1" data-name="kunal saha krishna saha">
+                    <div class="rank-position">1</div>
+                    <div>
+                        <div class="student-name">Kunal Saha</div>
+                        <div class="parent-name">Son of Krishna Saha</div>
+                    </div>
+                    <div class="marks">81</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Rank 2 -->
+                <div class="rank-row rank-2" data-name="mousami das haren chandra das">
+                    <div class="rank-position">2</div>
+                    <div>
+                        <div class="student-name">Mousami Das</div>
+                        <div class="parent-name">Daughter of Haren Chandra Das</div>
+                    </div>
+                    <div class="marks">75</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Rank 3 -->
+                <div class="rank-row rank-3" data-name="avijit singha lagendra nath singha">
+                    <div class="rank-position">3</div>
+                    <div>
+                        <div class="student-name">Avijit Singha</div>
+                        <div class="parent-name">Son of Lagendra Nath Singha</div>
+                    </div>
+                    <div class="marks">72</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Rank 4-5 (Tie) -->
+                <div class="rank-row" data-name="jagmani singha sanjay singha">
+                    <div class="rank-position">4</div>
+                    <div>
+                        <div class="student-name">Jagmani Singha</div>
+                        <div class="parent-name">Son of Sanjay Singha</div>
+                    </div>
+                    <div class="marks">69</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="patideb das malay das">
+                    <div class="rank-position">4</div>
+                    <div>
+                        <div class="student-name">Patideb Das</div>
+                        <div class="parent-name">Son of Malay Das</div>
+                    </div>
+                    <div class="marks">69</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Rank 6 -->
+                <div class="rank-row" data-name="dhiraj das manoranjan das">
+                    <div class="rank-position">6</div>
+                    <div>
+                        <div class="student-name">Dhiraj Das</div>
+                        <div class="parent-name">Son of Manoranjan Das</div>
+                    </div>
+                    <div class="marks">66</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Rank 7 -->
+                <div class="rank-row" data-name="vinayak sinha dipak kumar sinha">
+                    <div class="rank-position">7</div>
+                    <div>
+                        <div class="student-name">Vinayak Sinha</div>
+                        <div class="parent-name">Son of Dipak Kumar Sinha</div>
+                    </div>
+                    <div class="marks">63</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Rank 8 -->
+                <div class="rank-row" data-name="sayan mandal sribas mandal">
+                    <div class="rank-position">8</div>
+                    <div>
+                        <div class="student-name">Sayan Mandal</div>
+                        <div class="parent-name">Son of Sribas Mandal</div>
+                    </div>
+                    <div class="marks">60</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 9-12 (Tie - 57 marks) -->
+                <div class="rank-row" data-name="indira sinha shyamal kumar sinha">
+                    <div class="rank-position">9</div>
+                    <div>
+                        <div class="student-name">Indira Sinha</div>
+                        <div class="parent-name">Daughter of Shyamal Kumar Sinha</div>
+                    </div>
+                    <div class="marks">57</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ankush sinha dulali singha">
+                    <div class="rank-position">9</div>
+                    <div>
+                        <div class="student-name">Ankush Sinha</div>
+                        <div class="parent-name">Son of Dulali Singha</div>
+                    </div>
+                    <div class="marks">57</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="abhijit das sampa das">
+                    <div class="rank-position">9</div>
+                    <div>
+                        <div class="student-name">Abhijit Das</div>
+                        <div class="parent-name">Son of Sampa Das</div>
+                    </div>
+                    <div class="marks">57</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sofiya naz samim reza">
+                    <div class="rank-position">9</div>
+                    <div>
+                        <div class="student-name">Sofiya Naz</div>
+                        <div class="parent-name">Daughter of Samim Reza</div>
+                    </div>
+                    <div class="marks">57</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 13-14 (Tie - 54 marks) -->
+                <div class="rank-row" data-name="apurba singha jania singha">
+                    <div class="rank-position">13</div>
+                    <div>
+                        <div class="student-name">Apurba Singha</div>
+                        <div class="parent-name">Son of Jania Singha</div>
+                    </div>
+                    <div class="marks">54</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="deb ghosh mahesh ghosh">
+                    <div class="rank-position">13</div>
+                    <div>
+                        <div class="student-name">Deb Ghosh</div>
+                        <div class="parent-name">Son of Mahesh Ghosh</div>
+                    </div>
+                    <div class="marks">54</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 15-20 (Tie - 51 marks) -->
+                <div class="rank-row" data-name="tasheen fatima sifat ali">
+                    <div class="rank-position">15</div>
+                    <div>
+                        <div class="student-name">Tasheen Fatima</div>
+                        <div class="parent-name">Daughter of Sifat Ali</div>
+                    </div>
+                    <div class="marks">51</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ananya roy ashit roy">
+                    <div class="rank-position">15</div>
+                    <div>
+                        <div class="student-name">Ananya Roy</div>
+                        <div class="parent-name">Daughter of Ashit Roy</div>
+                    </div>
+                    <div class="marks">51</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="bittu roy bilas roy">
+                    <div class="rank-position">15</div>
+                    <div>
+                        <div class="student-name">Bittu Roy</div>
+                        <div class="parent-name">Son of Bilas Roy</div>
+                    </div>
+                    <div class="marks">51</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="biswadip sinha tarun">
+                    <div class="rank-position">15</div>
+                    <div>
+                        <div class="student-name">Biswadip Sinha</div>
+                        <div class="parent-name">Son of Tarun</div>
+                    </div>
+                    <div class="marks">51</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="dhiresh das birbal das">
+                    <div class="rank-position">15</div>
+                    <div>
+                        <div class="student-name">Dhiresh Das</div>
+                        <div class="parent-name">Son of Birbal Das</div>
+                    </div>
+                    <div class="marks">51</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rani das kashinath das">
+                    <div class="rank-position">15</div>
+                    <div>
+                        <div class="student-name">Rani Das</div>
+                        <div class="parent-name">Daughter of Kashinath Das</div>
+                    </div>
+                    <div class="marks">51</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 21-25 (Tie - 48 marks) -->
+                <div class="rank-row" data-name="nandini mandal nimai mandal">
+                    <div class="rank-position">21</div>
+                    <div>
+                        <div class="student-name">Nandini Mandal</div>
+                        <div class="parent-name">Daughter of Nimai Mandal</div>
+                    </div>
+                    <div class="marks">48</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="bhumi das mangal das">
+                    <div class="rank-position">21</div>
+                    <div>
+                        <div class="student-name">Bhumi Das</div>
+                        <div class="parent-name">Daughter of Mangal Das</div>
+                    </div>
+                    <div class="marks">48</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="anushka roy amal kumar roy">
+                    <div class="rank-position">21</div>
+                    <div>
+                        <div class="student-name">Anushka Roy</div>
+                        <div class="parent-name">Daughter of Amal Kumar Roy</div>
+                    </div>
+                    <div class="marks">48</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rifa anjum haidar ali">
+                    <div class="rank-position">21</div>
+                    <div>
+                        <div class="student-name">Rifa Anjum</div>
+                        <div class="parent-name">Daughter of Haidar Ali</div>
+                    </div>
+                    <div class="marks">48</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="shreyashi shil lipi biswas">
+                    <div class="rank-position">21</div>
+                    <div>
+                        <div class="student-name">Shreyashi Shil</div>
+                        <div class="parent-name">Daughter of Lipi Biswas</div>
+                    </div>
+                    <div class="marks">48</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 26-31 (Tie - 45 marks) -->
+                <div class="rank-row" data-name="sayoni sarkar manoj sarkar">
+                    <div class="rank-position">26</div>
+                    <div>
+                        <div class="student-name">Sayoni Sarkar</div>
+                        <div class="parent-name">Daughter of Manoj Sarkar</div>
+                    </div>
+                    <div class="marks">45</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sagnik chakraborty sanjoy chakraborty">
+                    <div class="rank-position">26</div>
+                    <div>
+                        <div class="student-name">Sagnik Chakraborty</div>
+                        <div class="parent-name">Son of Sanjoy Chakraborty</div>
+                    </div>
+                    <div class="marks">45</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ananya mahi gul mohammad sarkar">
+                    <div class="rank-position">26</div>
+                    <div>
+                        <div class="student-name">Ananya Mahi</div>
+                        <div class="parent-name">Daughter of Gul Mohammad Sarkar</div>
+                    </div>
+                    <div class="marks">45</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="bishal singha manoj kumar singha">
+                    <div class="rank-position">26</div>
+                    <div>
+                        <div class="student-name">Bishal Singha</div>
+                        <div class="parent-name">Son of Manoj Kumar Singha</div>
+                    </div>
+                    <div class="marks">45</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="tanima sinha nirmal sinha">
+                    <div class="rank-position">26</div>
+                    <div>
+                        <div class="student-name">Tanima Sinha</div>
+                        <div class="parent-name">Daughter of Nirmal Sinha</div>
+                    </div>
+                    <div class="marks">45</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="alisha yasmin saiful ali sarkar">
+                    <div class="rank-position">26</div>
+                    <div>
+                        <div class="student-name">Alisha Yasmin</div>
+                        <div class="parent-name">Daughter of Saiful Ali Sarkar</div>
+                    </div>
+                    <div class="marks">45</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 32-36 (Tie - 42 marks) -->
+                <div class="rank-row" data-name="sagarika singha prakash ch singha">
+                    <div class="rank-position">32</div>
+                    <div>
+                        <div class="student-name">Sagarika Singha</div>
+                        <div class="parent-name">Daughter of Prakash Ch. Singha</div>
+                    </div>
+                    <div class="marks">42</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rittik das bipad das">
+                    <div class="rank-position">32</div>
+                    <div>
+                        <div class="student-name">Rittik Das</div>
+                        <div class="parent-name">Son of Bipad Das</div>
+                    </div>
+                    <div class="marks">42</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="aditi singha arjun kumar singha">
+                    <div class="rank-position">32</div>
+                    <div>
+                        <div class="student-name">Aditi Singha</div>
+                        <div class="parent-name">Daughter of Arjun Kumar Singha</div>
+                    </div>
+                    <div class="marks">42</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sujit mahato madan mahato">
+                    <div class="rank-position">32</div>
+                    <div>
+                        <div class="student-name">Sujit Mahato</div>
+                        <div class="parent-name">Son of Madan Mahato</div>
+                    </div>
+                    <div class="marks">42</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="kamalika barman hiralal barman">
+                    <div class="rank-position">32</div>
+                    <div>
+                        <div class="student-name">Kamalika Barman</div>
+                        <div class="parent-name">Daughter of Hiralal Barman</div>
+                    </div>
+                    <div class="marks">42</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Continue with remaining ranks... I'll add a few more key ones and then provide the complete structure -->
+
+                <!-- Ranks 37-46 (Tie - 39 marks) -->
+                <div class="rank-row" data-name="pallobi mandal sharabindu mandal">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Pallobi Mandal</div>
+                        <div class="parent-name">Daughter of Sharabindu Mandal</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="poulami sinha debasis sinha">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Poulami Sinha</div>
+                        <div class="parent-name">Daughter of Debasis Sinha</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="subhadip singha binay singha">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Subhadip Singha</div>
+                        <div class="parent-name">Son of Binay Singha</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="soumik das somu das">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Soumik Das</div>
+                        <div class="parent-name">Son of Somu Das</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="dhriti singha bimal kumar singha">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Dhriti Singha</div>
+                        <div class="parent-name">Daughter of Bimal Kumar Singha</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="joytri das sachin kumar das">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Joytri Das</div>
+                        <div class="parent-name">Daughter of Sachin Kumar Das</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="priya roy annada roy">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Priya Roy</div>
+                        <div class="parent-name">Daughter of Annada Roy</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="anup singha madan kumar singha">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Anup Singha</div>
+                        <div class="parent-name">Son of Madan Kumar Singha</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="aradhya sarkar biswajit kumar sarkar">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Aradhya Sarkar</div>
+                        <div class="parent-name">Daughter of Biswajit Kumar Sarkar</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sweety nunia late parimal nunia jaya singha">
+                    <div class="rank-position">37</div>
+                    <div>
+                        <div class="student-name">Sweety Nunia</div>
+                        <div class="parent-name">Daughter of Late Parimal Nunia, Jaya Singha</div>
+                    </div>
+                    <div class="marks">39</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 47-52 (Tie - 36 marks) -->
+                <div class="rank-row" data-name="benisa ghosh rinki ghosh">
+                    <div class="rank-position">47</div>
+                    <div>
+                        <div class="student-name">Benisa Ghosh</div>
+                        <div class="parent-name">Daughter of Rinki Ghosh</div>
+                    </div>
+                    <div class="marks">36</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="manisha das pintu das">
+                    <div class="rank-position">47</div>
+                    <div>
+                        <div class="student-name">Manisha Das</div>
+                        <div class="parent-name">Daughter of Pintu Das</div>
+                    </div>
+                    <div class="marks">36</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="kalyan das rabi das">
+                    <div class="rank-position">47</div>
+                    <div>
+                        <div class="student-name">Kalyan Das</div>
+                        <div class="parent-name">Son of Rabi Das</div>
+                    </div>
+                    <div class="marks">36</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ariyan jadab aruan jadab">
+                    <div class="rank-position">47</div>
+                    <div>
+                        <div class="student-name">Ariyan Jadab</div>
+                        <div class="parent-name">Son of Aruan Jadab</div>
+                    </div>
+                    <div class="marks">36</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ayesha nisha anwar hosin">
+                    <div class="rank-position">47</div>
+                    <div>
+                        <div class="student-name">Ayesha Nisha</div>
+                        <div class="parent-name">Daughter of Anwar Hosin</div>
+                    </div>
+                    <div class="marks">36</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="nurej alam jamsed alam">
+                    <div class="rank-position">47</div>
+                    <div>
+                        <div class="student-name">Nurej Alam</div>
+                        <div class="parent-name">Son of Jamsed Alam</div>
+                    </div>
+                    <div class="marks">36</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 53-61 (Tie - 33 marks) -->
+                <div class="rank-row" data-name="ushashi singha upendra nath singha">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Ushashi Singha</div>
+                        <div class="parent-name">Daughter of Upendra Nath Singha</div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="abhi bhattacharjee ratan bhattacharjee">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Abhi Bhattacharjee</div>
+                        <div class="parent-name">Son of Ratan Bhattacharjee</div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="mritunjoy sinha partha sinha">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Mritunjoy Sinha</div>
+                        <div class="parent-name">Son of Partha Sinha</div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="deep das rajkumar das">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Deep Das</div>
+                        <div class="parent-name">Son of Rajkumar Das</div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="shakil alam masud alam">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Shakil Alam</div>
+                        <div class="parent-name">Son of Masud Alam</div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="tridebesh barman">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Tridebesh Barman</div>
+                        <div class="parent-name"></div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="barohi barman banshi barman">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Barohi Barman</div>
+                        <div class="parent-name">Daughter of Banshi Barman</div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="srija shikdar bipul shikdar">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Srija Shikdar</div>
+                        <div class="parent-name">Daughter of Bipul Shikdar</div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="adrija mandal paresh mandal">
+                    <div class="rank-position">53</div>
+                    <div>
+                        <div class="student-name">Adrija Mandal</div>
+                        <div class="parent-name">Daughter of Paresh Mandal</div>
+                    </div>
+                    <div class="marks">33</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 62-70 (Tie - 30 marks) -->
+                <div class="rank-row" data-name="swastika ghosh shankar ghosh">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Swastika Ghosh</div>
+                        <div class="parent-name">Daughter of Shankar Ghosh</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="arnab sarkar nirmal kumar sarkar">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Arnab Sarkar</div>
+                        <div class="parent-name">Son of Nirmal Kumar Sarkar</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="arka baidya pinki baidya">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Arka Baidya</div>
+                        <div class="parent-name">Son of Pinki Baidya</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="anup kumar das chhatradhar das">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Anup Kumar Das</div>
+                        <div class="parent-name">Son of Chhatradhar Das</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="dipanshu kundu pallabi mahanta kundu">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Dipanshu Kundu</div>
+                        <div class="parent-name">Son of Pallabi Mahanta Kundu</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="priti sarkar putul sarkar">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Priti Sarkar</div>
+                        <div class="parent-name">Daughter of Putul Sarkar</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="mandira singha shambha singha">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Mandira Singha</div>
+                        <div class="parent-name">Daughter of Shambha Singha</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="bristi singha dulal singha">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Bristi Singha</div>
+                        <div class="parent-name">Daughter of Dulal Singha</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="arup singha adhin singha">
+                    <div class="rank-position">62</div>
+                    <div>
+                        <div class="student-name">Arup Singha</div>
+                        <div class="parent-name">Son of Adhin Singha</div>
+                    </div>
+                    <div class="marks">30</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 71-81 (Tie - 27 marks) -->
+                <div class="rank-row" data-name="rina tudu babulal tudu">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Rina Tudu</div>
+                        <div class="parent-name">Daughter of Babulal Tudu</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="hiya sarkar lalit ch sarkar">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Hiya Sarkar</div>
+                        <div class="parent-name">Daughter of Lalit Ch Sarkar</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ritika thokdar raju thokdar">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Ritika Thokdar</div>
+                        <div class="parent-name">Daughter of Raju Thokdar</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="megha parvin sahabuddin hoque">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Megha Parvin</div>
+                        <div class="parent-name">Daughter of Sahabuddin Hoque</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rakhi das nishi kanta das">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Rakhi Das</div>
+                        <div class="parent-name">Daughter of Nishi Kanta Das</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="natik singha kakuli singha">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Natik Singha</div>
+                        <div class="parent-name">Son of Kakuli Singha</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="pratap singha dharmu singha">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Pratap Singha</div>
+                        <div class="parent-name">Son of Dharmu Singha</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="puja singha prakash chandra singha">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Puja Singha</div>
+                        <div class="parent-name">Daughter of Prakash Chandra Singha</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="payel murmu jahan murmu">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Payel Murmu</div>
+                        <div class="parent-name">Daughter of Jahan Murmu</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="md sharque alam jani alam">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Md. Sharque Alam</div>
+                        <div class="parent-name">Son of Jani Alam</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="manisha sanyasi manik sanyasi">
+                    <div class="rank-position">71</div>
+                    <div>
+                        <div class="student-name">Manisha Sanyasi</div>
+                        <div class="parent-name">Daughter of Manik Sanyasi</div>
+                    </div>
+                    <div class="marks">27</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 82-90 (Tie - 24 marks) -->
+                <div class="rank-row" data-name="tanay das shyamal das">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Tanay Das</div>
+                        <div class="parent-name">Son of Shyamal Das</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="dhurba singha thiren singha">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Dhurba Singha</div>
+                        <div class="parent-name">Son of Thiren Singha</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="hashi singha dakhal singha">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Hashi Singha</div>
+                        <div class="parent-name">Daughter of Dakhal Singha</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="premjit tudu ramu tudu">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Premjit Tudu</div>
+                        <div class="parent-name">Son of Ramu Tudu</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ashutosh singha ajit singha">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Ashutosh Singha</div>
+                        <div class="parent-name">Son of Ajit Singha</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="bibek pal narayan chandra pal">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Bibek Pal</div>
+                        <div class="parent-name">Son of Narayan Chandra Pal</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="kanika rani sinha biplab sinha">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Kanika Rani Sinha</div>
+                        <div class="parent-name">Daughter of Biplab Sinha</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="dipanjana roy dulal roy">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Dipanjana Roy</div>
+                        <div class="parent-name">Daughter of Dulal Roy</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rifatamanna samsul alam mandal">
+                    <div class="rank-position">82</div>
+                    <div>
+                        <div class="student-name">Rifatamanna</div>
+                        <div class="parent-name">Daughter of Samsul Alam Mandal</div>
+                    </div>
+                    <div class="marks">24</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 91-99 (Tie - 21 marks) -->
+                <div class="rank-row" data-name="manisha singha kiran singha">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Manisha Singha</div>
+                        <div class="parent-name">Daughter of Kiran Singha</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="alok baroi bappa baroi">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Alok Baroi</div>
+                        <div class="parent-name">Son of Bappa Baroi</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ankit kundu nime mahanta">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Ankit Kundu</div>
+                        <div class="parent-name">Son of Nime Mahanta</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rakhi soren junas soren">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Rakhi Soren</div>
+                        <div class="parent-name">Daughter of Junas Soren</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="kritti singha naba kumar singha">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Kritti Singha</div>
+                        <div class="parent-name">Daughter of Naba Kumar Singha</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rani singha manoj kumar singha">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Rani Singha</div>
+                        <div class="parent-name">Daughter of Manoj Kumar Singha</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="prabir singha khagesh ch singha">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Prabir Singha</div>
+                        <div class="parent-name">Son of Khagesh Ch Singha</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="nabanita sinha ajit sinha">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Nabanita Sinha</div>
+                        <div class="parent-name">Daughter of Ajit Sinha</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="trisha sinha biswas chandra sinha">
+                    <div class="rank-position">91</div>
+                    <div>
+                        <div class="student-name">Trisha Sinha</div>
+                        <div class="parent-name">Daughter of Biswas Chandra Sinha</div>
+                    </div>
+                    <div class="marks">21</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 100-109 (Tie - 18 marks) -->
+                <div class="rank-row" data-name="bablu singha lakheswar singha">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Bablu Singha</div>
+                        <div class="parent-name">Son of Lakheswar Singha</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="abishek sinha tribeni kr sinha">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Abishek Sinha</div>
+                        <div class="parent-name">Son of Tribeni Kr Sinha</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="hriday ghosh trithankar ghosh">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Hriday Ghosh</div>
+                        <div class="parent-name">Son of Trithankar Ghosh</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="nayan das akshay kumar das">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Nayan Das</div>
+                        <div class="parent-name">Son of Akshay Kumar Das</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ridhi singha hemanta singha">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Ridhi Singha</div>
+                        <div class="parent-name">Daughter of Hemanta Singha</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="hitashree sinha chakradhar sinha">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Hitashree Sinha</div>
+                        <div class="parent-name">Daughter of Chakradhar Sinha</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sukladhaz das malay das">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Sukladhaz Das</div>
+                        <div class="parent-name">Son of Malay Das</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="argha roy shymal ch roy">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Argha Roy</div>
+                        <div class="parent-name">Son of Shymal Ch Roy</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rupali biswas janaki biswas">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Rupali Biswas</div>
+                        <div class="parent-name">Daughter of Janaki Biswas</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="amit kumar das kashan kumar das">
+                    <div class="rank-position">100</div>
+                    <div>
+                        <div class="student-name">Amit Kumar Das</div>
+                        <div class="parent-name">Son of Kashan Kumar Das</div>
+                    </div>
+                    <div class="marks">18</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 110-116 (Tie - 15 marks) -->
+                <div class="rank-row" data-name="purab singha fenen singha">
+                    <div class="rank-position">110</div>
+                    <div>
+                        <div class="student-name">Purab Singha</div>
+                        <div class="parent-name">Son of Fenen Singha</div>
+                    </div>
+                    <div class="marks">15</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="koushik shil nava shil">
+                    <div class="rank-position">110</div>
+                    <div>
+                        <div class="student-name">Koushik Shil</div>
+                        <div class="parent-name">Son of Nava Shil</div>
+                    </div>
+                    <div class="marks">15</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="anisha hasda lorens hasda">
+                    <div class="rank-position">110</div>
+                    <div>
+                        <div class="student-name">Anisha Hasda</div>
+                        <div class="parent-name">Daughter of Lorens Hasda</div>
+                    </div>
+                    <div class="marks">15</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="tanmay singha batul singha">
+                    <div class="rank-position">110</div>
+                    <div>
+                        <div class="student-name">Tanmay Singha</div>
+                        <div class="parent-name">Son of Batul Singha</div>
+                    </div>
+                    <div class="marks">15</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="deep rabidas bilak rabidas">
+                    <div class="rank-position">110</div>
+                    <div>
+                        <div class="student-name">Deep Rabidas</div>
+                        <div class="parent-name">Son of Bilak Rabidas</div>
+                    </div>
+                    <div class="marks">15</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="md nasar raza md imam akbar">
+                    <div class="rank-position">110</div>
+                    <div>
+                        <div class="student-name">Md Nasar Raza</div>
+                        <div class="parent-name">Son of Md Imam Akbar</div>
+                    </div>
+                    <div class="marks">15</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="keya sarkar kamal sarkar">
+                    <div class="rank-position">110</div>
+                    <div>
+                        <div class="student-name">Keya Sarkar</div>
+                        <div class="parent-name">Daughter of Kamal Sarkar</div>
+                    </div>
+                    <div class="marks">15</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 117-120 (Tie - 12 marks) -->
+                <div class="rank-row" data-name="diya roy palash roy">
+                    <div class="rank-position">117</div>
+                    <div>
+                        <div class="student-name">Diya Roy</div>
+                        <div class="parent-name">Daughter of Palash Roy</div>
+                    </div>
+                    <div class="marks">12</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="pabitra kumar das deben kumar das">
+                    <div class="rank-position">117</div>
+                    <div>
+                        <div class="student-name">Pabitra Kumar Das</div>
+                        <div class="parent-name">Son of Deben Kumar Das</div>
+                    </div>
+                    <div class="marks">12</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sidhwan das sachan das">
+                    <div class="rank-position">117</div>
+                    <div>
+                        <div class="student-name">Sidhwan Das</div>
+                        <div class="parent-name">Son of Sachan Das</div>
+                    </div>
+                    <div class="marks">12</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="manab sinha ratan sinha">
+                    <div class="rank-position">117</div>
+                    <div>
+                        <div class="student-name">Manab Sinha</div>
+                        <div class="parent-name">Son of Ratan Sinha</div>
+                    </div>
+                    <div class="marks">12</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 121-134 (Tie - 9 marks) -->
+                <div class="rank-row" data-name="unnishasingh bivash sinh">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">UnnishaSingh</div>
+                        <div class="parent-name">Daughter of Bivash Sinh</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="subham das">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Subham Das</div>
+                        <div class="parent-name"></div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="siba pal sribash pal">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Siba Pal</div>
+                        <div class="parent-name">Son of Sribash Pal</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sneha ghosh shyamal ghosh">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Sneha Ghosh</div>
+                        <div class="parent-name">Daughter of Shyamal Ghosh</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="avijit singha raj kumar singha">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Avijit Singha</div>
+                        <div class="parent-name">Son of Raj Kumar Singha</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="puja das niranjan das">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Puja Das</div>
+                        <div class="parent-name">Daughter of Niranjan Das</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="hardik kumar sinha kartik kumar sinha">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Hardik Kumar Sinha</div>
+                        <div class="parent-name">Son of Kartik Kumar Sinha</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="akash singha noren singha">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Akash Singha</div>
+                        <div class="parent-name">Son of Noren Singha</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sunanda das utpal das">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Sunanda Das</div>
+                        <div class="parent-name">Daughter of Utpal Das</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="shubhankar sarkar bapan sarkar">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Shubhankar Sarkar</div>
+                        <div class="parent-name">Son of Bapan Sarkar</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="nandini singha sahadeb singha">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Nandini Singha</div>
+                        <div class="parent-name">Daughter of Sahadeb Singha</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rahul hembrom seba hembrom">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Rahul Hembrom</div>
+                        <div class="parent-name">Son of Seba Hembrom</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="konika das sono das">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Konika Das</div>
+                        <div class="parent-name">Daughter of Sono Das</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sangita murmu baburam murmu">
+                    <div class="rank-position">121</div>
+                    <div>
+                        <div class="student-name">Sangita Murmu</div>
+                        <div class="parent-name">Daughter of Baburam Murmu</div>
+                    </div>
+                    <div class="marks">9</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Ranks 135-143 (Tie - 6 marks) -->
+                <div class="rank-row" data-name="kabita saha gopal saha">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Kabita Saha</div>
+                        <div class="parent-name">Daughter of Gopal Saha</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="barsha paul dinesh paul">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Barsha Paul</div>
+                        <div class="parent-name">Daughter of Dinesh Paul</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rumpa paul susanta paul">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Rumpa Paul</div>
+                        <div class="parent-name">Daughter of Susanta Paul</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="kalyani singha haren singha">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Kalyani Singha</div>
+                        <div class="parent-name">Daughter of Haren Singha</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="deep das badal das">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Deep Das</div>
+                        <div class="parent-name">Son of Badal Das</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="nandini kishku simol kisku">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Nandini Kishku</div>
+                        <div class="parent-name">Daughter of Simol Kisku</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="sujata tudu chandan tudu">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Sujata Tudu</div>
+                        <div class="parent-name">Daughter of Chandan Tudu</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="saptami singha tanka singha">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Saptami Singha</div>
+                        <div class="parent-name">Daughter of Tanka Singha</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="trishna sinha parimal sinha">
+                    <div class="rank-position">135</div>
+                    <div>
+                        <div class="student-name">Trishna Sinha</div>
+                        <div class="parent-name">Daughter of Parimal Sinha</div>
+                    </div>
+                    <div class="marks">6</div>
+                    <div class="medal"></div>
+                </div>
+
+                <!-- Remaining students with 3 marks (Ranks 144-175) -->
+                <div class="rank-row" data-name="sundori chowdhary kartik chowdhury">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Sundori Chowdhary</div>
+                        <div class="parent-name">Daughter of Kartik Chowdhury</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rita singha malay singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Rita Singha</div>
+                        <div class="parent-name">Daughter of Malay Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="parmita singha krishna singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Parmita Singha</div>
+                        <div class="parent-name">Daughter of Krishna Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="anjali hasda surai hasda">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Anjali Hasda</div>
+                        <div class="parent-name">Daughter of Surai Hasda</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="bhabna thakur santos thakur">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Bhabna Thakur</div>
+                        <div class="parent-name">Daughter of Santos Thakur</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="jyoti das samparna das">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Jyoti Das</div>
+                        <div class="parent-name">Daughter of Samparna Das</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="barnali singha lakhiram singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Barnali Singha</div>
+                        <div class="parent-name">Daughter of Lakhiram Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="usha singha dhiren singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Usha Singha</div>
+                        <div class="parent-name">Daughter of Dhiren Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="samrat singha basudeb singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Samrat Singha</div>
+                        <div class="parent-name">Son of Basudeb Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="bhumika thakur santosh thakur">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Bhumika Thakur</div>
+                        <div class="parent-name">Daughter of Santosh Thakur</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ananda mahato ashok mahato">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Ananda Mahato</div>
+                        <div class="parent-name">Son of Ashok Mahato</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="purnima soren soriam soren">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Purnima Soren</div>
+                        <div class="parent-name">Daughter of Soriam Soren</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="deb biswas debasish biswas">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Deb Biswas</div>
+                        <div class="parent-name">Son of Debasish Biswas</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="anik singha sapon singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Anik Singha</div>
+                        <div class="parent-name">Son of Sapon Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="bikram singha santosh singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Bikram Singha</div>
+                        <div class="parent-name">Son of Santosh Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="nilay das arun das">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Nilay Das</div>
+                        <div class="parent-name">Son of Arun Das</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="gour singha kamal kanta singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Gour Singha</div>
+                        <div class="parent-name">Son of Kamal Kanta Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="raja kumar das madan kumar das">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Raja Kumar Das</div>
+                        <div class="parent-name">Son of Madan Kumar Das</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="pabitra singha ramdeb singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Pabitra Singha</div>
+                        <div class="parent-name">Son of Ramdeb Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="deb kumar singha badal kumar singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Deb Kumar Singha</div>
+                        <div class="parent-name">Son of Badal Kumar Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="barna singha subhash singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Barna Singha</div>
+                        <div class="parent-name">Daughter of Subhash Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="konika das">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Konika Das</div>
+                        <div class="parent-name"></div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="roshina das">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Roshina Das</div>
+                        <div class="parent-name"></div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="madhabi das khushi das">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Madhabi Das</div>
+                        <div class="parent-name">Daughter of Khushi Das</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="shilpi singha anukul singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Shilpi Singha</div>
+                        <div class="parent-name">Daughter of Anukul Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="radhika pal sukumar pal">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Radhika Pal</div>
+                        <div class="parent-name">Daughter of Sukumar Pal</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="khushi choudhury ralan chowdhury">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Khushi Choudhury</div>
+                        <div class="parent-name">Daughter of Ralan Chowdhury</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="anita singha ratan singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Anita Singha</div>
+                        <div class="parent-name">Daughter of Ratan Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="riya singha amallya singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Riya Singha</div>
+                        <div class="parent-name">Daughter of Amallya Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="ami barman dhapu barman">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Ami Barman</div>
+                        <div class="parent-name">Daughter of Dhapu Barman</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="rohit singha dinesh singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Rohit Singha</div>
+                        <div class="parent-name">Son of Dinesh Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="riya mahato sushanta mahato">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Riya Mahato</div>
+                        <div class="parent-name">Daughter of Sushanta Mahato</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="arpita das atul das">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Arpita Das</div>
+                        <div class="parent-name">Daughter of Atul Das</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+                <div class="rank-row" data-name="barna singha mahadeb singha">
+                    <div class="rank-position">144</div>
+                    <div>
+                        <div class="student-name">Barna Singha</div>
+                        <div class="parent-name">Daughter of Mahadeb Singha</div>
+                    </div>
+                    <div class="marks">3</div>
+                    <div class="medal"></div>
+                </div>
+
+            </div>
+
+            <div class="no-results hide" id="noResults">
+                <p>No students found matching your search criteria.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>🌟 Congratulations to All Participants!</h3>
+            <p>Thank you for making Math Little Champs 2025 a memorable event.</p>
+            <p>আপনাদের সবার অংশগ্রহণের জন্য ধন্যবাদ!</p>
+        </div>
     </div>
-    
-    <div class="announcement-content">
-      <h2>🎉 Results Coming Soon!</h2>
-      <p class="english-text">Rank List would appear here on 6th December 2025.</p>
-      <p class="bangla-text">র‍্যাঙ্ক লিস্ট এখানে ৬ ডিসেম্বর ২০২৫ তারিখে প্রকাশিত হবে।</p>
-    </div>
-  </div>
 
-  <div class="countdown-section">
-    <h3>⏰ Countdown to Results</h3>
-    <div id="countdown" class="countdown-display">
-      <!-- Countdown will be populated by JavaScript -->
-    </div>
-  </div>
+    <script>
+        // Search functionality
+        const searchBox = document.getElementById('searchBox');
+        const rankRows = document.querySelectorAll('.rank-row');
+        const noResults = document.getElementById('noResults');
 
-  <div class="encouragement-section">
-    <div class="message-box">
-      <h3>🌟 To All Participants</h3>
-      <p>Great job on participating in Math Little Champs 2025! Your dedication to mathematics is truly inspiring.</p>
-      <p>সকল অংশগ্রহণকারীদের অভিনন্দন! গণিতে আপনাদের উৎসাহ সত্যিই অনুপ্রেরণাদায়ক।</p>
-    </div>
-  </div>
-</div>
+        searchBox.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            let visibleCount = 0;
 
-<style>
-.mlc-2025-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
-}
+            rankRows.forEach(row => {
+                const searchData = row.getAttribute('data-name').toLowerCase();
+                if (searchData.includes(searchTerm)) {
+                    row.classList.remove('hide');
+                    visibleCount++;
+                } else {
+                    row.classList.add('hide');
+                }
+            });
 
-.mlc-header {
-  text-align: center;
-  margin-bottom: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 40px 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+            if (visibleCount === 0 && searchTerm !== '') {
+                noResults.classList.remove('hide');
+            } else {
+                noResults.classList.add('hide');
+            }
+        });
 
-.trophy-icon {
-  font-size: 4em;
-  margin-bottom: 10px;
-  animation: bounce 2s infinite;
-}
+        // Add celebration confetti effect
+        function createConfetti() {
+            const colors = ['#FFD700', '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-piece';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
 
-.mlc-title {
-  font-size: 2.5em;
-  margin: 10px 0;
-  font-weight: bold;
-}
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }, i * 50);
+            }
+        }
 
-.subtitle {
-  font-size: 1.2em;
-  opacity: 0.9;
-  font-style: italic;
-}
+        // Trigger confetti on page load
+        window.addEventListener('load', () => {
+            setTimeout(createConfetti, 1000);
+        });
 
-.announcement-card {
-  background: white;
-  border-radius: 15px;
-  padding: 30px;
-  margin: 30px 0;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  border-left: 5px solid #667eea;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
+        // Add smooth scroll behavior for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
 
-.date-badge {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-  color: white;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  min-width: 120px;
-  box-shadow: 0 5px 15px rgba(238, 90, 36, 0.3);
-}
+        // Add loading animation for search
+        searchBox.addEventListener('focus', function() {
+            this.style.borderColor = 'var(--primary-gold)';
+        });
 
-.date-number {
-  display: block;
-  font-size: 3em;
-  font-weight: bold;
-  line-height: 1;
-}
-
-.
+        searchBox.addEventListener('blur', function() {
+            this.style.borderColor = 'var(--secondary-blue)';
+        });
+    </script>
+</body>
+</html>
